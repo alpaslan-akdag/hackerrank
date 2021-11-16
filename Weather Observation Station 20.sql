@@ -1,0 +1,13 @@
+
+SELECT 
+    FORMAT(ROUND(LAT_N,4),'N4') 
+FROM
+    (
+    SELECT 
+        ROW_NUMBER() OVER (ORDER BY LAT_N) AS ROW1, LAT_N 
+    FROM 
+        STATION   
+    ) AS TABLE1
+WHERE 
+    ROW1=ROUND((SELECT COUNT(*) + 0.0 FROM STATION)/2,0);
+
