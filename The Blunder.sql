@@ -1,0 +1,6 @@
+SELECT 
+    CAST(
+        CEILING(AVG(CAST(SALARY AS FLOAT)) - AVG(CAST(REPLACE(Salary, 0, '')AS Float))) 
+    AS INT)
+FROM 
+    EMPLOYEES;
